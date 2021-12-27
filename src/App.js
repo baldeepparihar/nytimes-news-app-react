@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-// import Articles from './components/Articles';
+import Articles from './components/Articles/Articles';
 import axios from 'axios';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     const getArticles = async () => {
       setLoading(true);
-      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=section_name:("Arts")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Technology")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setArticles(res.data.response.docs)
       
       setLoading(false);
@@ -18,11 +18,11 @@ const App = () => {
   getArticles();
   }, []);
   
-  
+  console.log(articles)
 
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      <Articles loading={loading} articles={articles} />
     </div>
   );
 }
