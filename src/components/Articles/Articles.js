@@ -1,8 +1,7 @@
 import React from 'react';
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import Article from '../Article/Article.js';
 import PropTypes from 'prop-types';
+import { Grid, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     card: {
@@ -36,6 +35,7 @@ function Articles({ loading, articles }) {
         </>
     );
 }
+
 
 Articles.propTypes = {
     loading: PropTypes.bool.isRequired,

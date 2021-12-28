@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import TopStory from '../TopStory/TopStory';
 import Spinner from '../Spinner/Spinner';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
+import { Grid, Button, Link } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +26,7 @@ function TopStories({ loading, topStories, getTopArticles }) {
     const classes = useStyles();
     useEffect(() => {
         getTopArticles('world')
-    }, [])
+    }, [getTopArticles])
     return (
         <div>
                 { loading ? 
@@ -37,9 +35,9 @@ function TopStories({ loading, topStories, getTopArticles }) {
                     ) : (
                     <>
                         <div className={classes.buttons}>
-                            <Button onClick={() => { getTopArticles('world'); }} variant="outlined" color="primary">World News</Button>
-                            <Button onClick={() => { getTopArticles('technology'); }} variant="outlined" color="secondary">Technology</Button>
-                            <Button onClick={() => { getTopArticles('us'); }} variant="outlined" color="default">US News</Button>
+                            <Button onClick={() => { getTopArticles('World'); }} variant="outlined" color="primary">World News</Button>
+                            <Button onClick={() => { getTopArticles('Technology'); }} variant="outlined" color="secondary">Technology</Button>
+                            <Button onClick={() => { getTopArticles('US'); }} variant="outlined" color="default">US News</Button>
                         </div>
 
                         <NavLink to="/">
