@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react';
-import { Routes, Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Articles from './components/Articles/Articles';
 import TopStories from './components/TopStories/TopStories';
@@ -7,7 +7,7 @@ import Search from './components/Search/Search';
 import axios from 'axios';
 import Typography from "@material-ui/core/Typography";
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -42,30 +42,53 @@ const App = () => {
   console.log(articles)
 
   return (
+    // <div>
+    //       <Navbar/>
+    //           <Container>
+    //             <Typography color="textPrimary" gutterBottom variant="h2" align="center">
+    //         <BrowserRouter>
+    //               <Routes>
+    //                 <Route exact path="/" element={() => (
+    //                   <div>
+    //                     <Search searchArticles={searchArticles} />
+    //                     <NavLink>
+    //                       <Articles loading={loading} articles={articles} />
+    //                     </NavLink>
+    //                   </div>
+    //                 )} />
+
+    //                 <Route exact path="/topstories" element={() => (
+    //                   <div>
+    //                     <TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />
+    //                   </div>
+    //                 )} />
+
+    //               </Routes>
+    //         </BrowserRouter>
+    //             </Typography>
+    //           </Container>
+    //   </div>
     <div>
-      <Navbar/>
-      <Container>
-        <Typography color="textPrimary" gutterBottom variant="h2" align="center">
-          <Routes>
-            <Route exact path="/" render={() => (
-              <div>
-                <Search searchArticles={searchArticles} />
-                <NavLink>
-                  <Articles loading={loading} articles={articles} />
-                </NavLink>
-              </div>
-            )} />
+          <Navbar/>
+              <Container>
+                <Typography color="textPrimary" gutterBottom variant="h2" align="center">
+            <BrowserRouter>
+                  <Routes>
+                    <Route exact path="/" element={
+                    <>
+                      <Search searchArticles={searchArticles}/> 
+                        <NavLink>
+                          <Articles loading={loading} articles={articles} />
+                      </NavLink> 
+                    </> } />
 
-            <Route exact path="/topstories" render={() => (
-              <div>
-                <TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />
-              </div>
-            )} />
+                    <Route exact path="/topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
 
-          </Routes>
-        </Typography>
-      </Container>
-    </div>
+                  </Routes>
+            </BrowserRouter>
+                </Typography>
+              </Container>
+      </div>
   );
 }
 

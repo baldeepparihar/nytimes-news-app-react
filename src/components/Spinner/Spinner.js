@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Navbar() {
+export default function Spinner() {
     return (
         <div>
-            <h1>Navbar</h1>
+            
         </div>
     )
 }
