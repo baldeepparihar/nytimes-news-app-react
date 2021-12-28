@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Articles({ loading, articles }) {
+function Articles({ loading, articles }) {
     const classes = useStyles();
 
     return (
@@ -41,3 +41,5 @@ Articles.propTypes = {
     loading: PropTypes.bool.isRequired,
     articles: PropTypes.array.isRequired,
 };
+
+export default Articles;
