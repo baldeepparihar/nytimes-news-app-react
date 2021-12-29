@@ -21,3 +21,12 @@ html {
     max-width: 100%;
     height: auto;
   }
+
+  .app {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin: auto;
+    padding: 0 15rem;
+    max-width: 1500px;
+  }

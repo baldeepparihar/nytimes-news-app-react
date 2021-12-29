@@ -6,7 +6,6 @@ import Articles from './components/Articles/Articles';
 import TopStories from './components/TopStories/TopStories';
 import Search from './components/Search/Search';
 import axios from 'axios';
-import { Typography, Container, Link } from "@material-ui/core";
 import './App.css';
 
 const App = () => {
@@ -42,33 +41,26 @@ const App = () => {
   console.log(articles)
 
   return (
-    <div>
+    <div className="app">
           {loading ? 
           (
             <Spinner />
           ) : (
             <div>
-                <Navbar/>
-                    <Container>
-                      <Typography color="textPrimary" gutterBottom variant="h2" align="center">
-                      <BrowserRouter>
-                        <Routes>
-                          <Route path="/" 
-                          element={
-                            <>
-                              <Search searchArticles={searchArticles}/> 
-                                <Link>
-                                  <Articles loading={loading} articles={articles} />
-                                </Link>
-                            </> 
-                          } 
-                          />
-                          <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
-
-                        </Routes>
-                      </BrowserRouter>
-                      </Typography>
-                    </Container>
+              <Navbar/>
+                <BrowserRouter>
+                  <Routes>
+                    <Route path="/" 
+                    element={
+                      <>
+                        <Search searchArticles={searchArticles}/> 
+                        <Articles loading={loading} articles={articles} />
+                      </> 
+                    } 
+                    />
+                    <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
+                  </Routes>
+                </BrowserRouter>
             </div>
         )}
     </div>

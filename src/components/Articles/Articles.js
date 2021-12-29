@@ -1,38 +1,27 @@
 import React from 'react';
-import Article from '../Article/Article.js';
+import MainArticle from '../Article/MainArticle.js';
+import Sidebar from '../Sidebar/Sidebar.js';
 import PropTypes from 'prop-types';
-import { Grid, makeStyles } from "@material-ui/core";
+import './Articles.css';
 
-const useStyles = makeStyles({
-    card: {
-        maxWidth: 345,
-        boxShadow: "0 5px 8px 0 rgba(0, 0, 0, 0.3)",
-        backgroundColor: "#fafafa",
-    },
-    media: {
-        height: 300,
-    },
-});
 
 function Articles({ loading, articles }) {
-    const classes = useStyles();
+
+    const featuredArticle = articles[0]
 
     return (
-        <>
-            {
-                loading ? (
-                    "Loading..."
-                ) : (
-                        <div className={classes.root} >
-                            <Grid container spacing={3}>
-                                {articles.map((article) => (
-                                    <Grid item xs={12} sm={4} key={article._id}>
-                                        <Article article={article} />
-                                    </Grid>
-                                ))}
-                            </Grid>
-                        </div>)}
-        </>
+        <div className='page--wrapper'>
+        {
+            loading ? (
+                "Loading..."
+            ) : (
+                <div className="articles" >
+                        {articles.map((article) => (
+                                <MainArticle featuredArticle={featuredArticle} article={article} />
+                        ))}
+                </div>)}
+                <Sidebar articles={articles}/>
+        </div>
     );
 }
 
