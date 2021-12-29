@@ -16,22 +16,23 @@ const App = () => {
   const [topStories, setTopStories] = useState([]);
 
   useEffect(() => {
-    const getArticles = async () => {
-      setLoading(true);
-      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("World")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-      setArticles(res.data.response.docs);
-      let data = await articles;
-      setLoading(false);   
-  
-      if(data.length){
-        setFeaturedArticle(data[0])
-        setSmallArticles(data.slice(1, 6))
-      }
-    };
+    
     getArticles();
   }, []);
 
- 
+  const getArticles = async () => {
+    setLoading(true);
+    const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("World")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+    setArticles(res.data.response.docs);
+    setLoading(false);   
+    
+    let data = articles;
+
+    if(articles.length){
+      setFeaturedArticle(data[0])
+      setSmallArticles(data.slice(1, 7))
+    }
+  };
 
   const searchArticles = async (text) => {
     setLoading(true);
@@ -56,7 +57,10 @@ const App = () => {
     <div className="app">
           {loading ? 
           (
-            <Spinner />
+            <div>
+              <h1>loading in app</h1>
+              <Spinner />
+            </div>
           ) : (
             <div>
               <Navbar/>
@@ -66,8 +70,7 @@ const App = () => {
                     element={
                       <div>
                         <Search searchArticles={searchArticles}/> 
-                        <Articles 
-                          loading={loading} 
+                        <Articles
                           articles={articles} 
                           featuredArticle={featuredArticle}
                           smallArticles={smallArticles}

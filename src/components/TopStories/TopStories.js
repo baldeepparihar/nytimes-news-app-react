@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import TopStory from '../TopStory/TopStory';
-import Spinner from '../Spinner/Spinner';
 import { Grid, Button, Link } from '@material-ui/core';
 import { makeStyles } from '@mui/styles';
 import { NavLink } from 'react-router-dom';
@@ -28,32 +27,25 @@ function TopStories({ loading, topStories, getTopArticles }) {
     }, [getTopArticles])
     return (
         <div>
-                { loading ? 
-                    (
-                        <Spinner />
-                    ) : (
-                    <>
-                        <div className={classes.buttons}>
-                            <Button onClick={() => { getTopArticles('World'); }} variant="outlined" color="primary">World News</Button>
-                            <Button onClick={() => { getTopArticles('Technology'); }} variant="outlined" color="secondary">Technology</Button>
-                            <Button onClick={() => { getTopArticles('US'); }} variant="outlined" color="default">US News</Button>
-                        </div>
+            <div className={classes.buttons}>
+                <Button onClick={() => { getTopArticles('World'); }} variant="outlined" color="primary">World News</Button>
+                <Button onClick={() => { getTopArticles('Technology'); }} variant="outlined" color="secondary">Technology</Button>
+                <Button onClick={() => { getTopArticles('US'); }} variant="outlined" color="default">US News</Button>
+            </div>
 
-                        <NavLink to="/">
-                            <Link component="button" variant="body2">Go Back</Link>
-                        </NavLink>
+            <NavLink to="/">
+                <Link component="button" variant="body2">Go Back</Link>
+            </NavLink>
 
-                        <div className={classes.root} >
-                            <Grid container spacing={3}>
-                                {topStories.map((topStory) => (
-                                    <Grid item xs={12} sm={4} key={topStory.url}>
-                                        <TopStory topStory={topStory} />
-                                    </Grid>
-                                ))}
-                            </Grid>
-                        </div>
-                    </>
-                )}
+            <div className={classes.root} >
+                <Grid container spacing={3}>
+                    {topStories.map((topStory) => (
+                        <Grid item xs={12} sm={4} key={topStory.url}>
+                            <TopStory topStory={topStory} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </div>
         </div>
     );
 }

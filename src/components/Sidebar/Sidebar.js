@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Sidebar.css';
 
 function Sidebar({ articles }) {
@@ -36,11 +35,5 @@ function Sidebar({ articles }) {
         </div>
     );
 }
-
-
-// Sidebar.propTypes = {
-//     loading: PropTypes.bool.isRequired,
-//     articles: PropTypes.array.isRequired,
-// };
 
 export default Sidebar;
