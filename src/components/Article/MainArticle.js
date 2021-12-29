@@ -1,10 +1,8 @@
 import React from 'react';
-import SmallArticles from '../SmallArticles/SmallArticles';
-import PropTypes from 'prop-types';
 import './MainArticle.css';
 
 
-const MainArticle = ({ smallArticles, featuredArticle }) => {
+const MainArticle = ({ featuredArticle }) => {
     return(
         <div className="main-article">
 
@@ -31,15 +29,10 @@ const MainArticle = ({ smallArticles, featuredArticle }) => {
                     </div>
                 </div>
             )}
-            <SmallArticles smallArticles={smallArticles} />
             </div>
-            
+
         </div>
     )
 }
-
-// MainArticle.protoTypes = {
-//     mainarticle: PropTypes.object.isRequired,
-// };
 
 export default MainArticle;

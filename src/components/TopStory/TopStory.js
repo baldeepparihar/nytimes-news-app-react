@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card, CardContent, CardMedia } from '@material-ui/core';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
@@ -41,9 +40,5 @@ const TopStory = ({ topStory }) => {
         </div>
     )
 }
-
-// TopStory.propTypes = {
-//     topStory: PropTypes.object.isRequired,
-// };
 
 export default TopStory;

@@ -1,5 +1,4 @@
 import React, { useState } from  'react';
-import PropTypes from 'prop-types';
 import { TextField, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -38,9 +37,5 @@ const Search = ({ searchArticles }) => {
         </div>
     );
 };
-
-// Search.propTypes = {
-//     searchArticles: PropTypes.func.isRequired,
-// }
 
 export default Search;

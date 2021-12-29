@@ -20,16 +20,19 @@ const App = () => {
       setLoading(true);
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("World")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setArticles(res.data.response.docs);
-      setLoading(false);
-
-      if(articles.length){
-        let data = articles;
+      let data = await articles;
+      setLoading(false);   
+  
+      if(data.length){
         setFeaturedArticle(data[0])
         setSmallArticles(data.slice(1, 6))
       }
-  };
-  getArticles();
+    };
+    getArticles();
   }, []);
+
+ 
+
   const searchArticles = async (text) => {
     setLoading(true);
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
@@ -61,7 +64,7 @@ const App = () => {
                   <Routes>
                     <Route path="/" 
                     element={
-                      <>
+                      <div>
                         <Search searchArticles={searchArticles}/> 
                         <Articles 
                           loading={loading} 
@@ -69,7 +72,7 @@ const App = () => {
                           featuredArticle={featuredArticle}
                           smallArticles={smallArticles}
                           />
-                      </> 
+                      </div> 
                     } 
                     />
                     <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />

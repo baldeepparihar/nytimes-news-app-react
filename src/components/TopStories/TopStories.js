@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import TopStory from '../TopStory/TopStory';
 import Spinner from '../Spinner/Spinner';
-import PropTypes from 'prop-types';
 import { Grid, Button, Link } from '@material-ui/core';
 import { makeStyles } from '@mui/styles';
 import { NavLink } from 'react-router-dom';
@@ -58,10 +57,5 @@ function TopStories({ loading, topStories, getTopArticles }) {
         </div>
     );
 }
-
-// TopStories.propTypes = {
-//     loading: PropTypes.bool.isRequired,
-//     topStories: PropTypes.array.isRequired,
-// };
 
 export default TopStories;

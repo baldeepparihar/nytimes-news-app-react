@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 import './SmallArticles.css';
 
 
-const SmallArticles = ({ smallArticles }) => {
+const SmallerArticles = ({ article }) => {
     return(
         <div className="small-article">
-            {smallArticles?.map((article) => (
-            <div>
-                {article && 
-                (
-                    <div className="small-article__card" id={article._id}>
+                {article && (
+                <div className="small-article__card" id={article._id}>
                     <img className="small-article__img"
                     src={article.multimedia?.[0]?.url ? 
                         `https://nytimes.com/${article.multimedia[0].url}` :
@@ -31,14 +28,12 @@ const SmallArticles = ({ smallArticles }) => {
                     </div>
                 </div>
                 )}  
-            </div>
-            ))}
         </div>
     )
 }
 
-// MainArticle.protoTypes = {
-//     mainarticle: PropTypes.object.isRequired,
-// };
+{/* MainArticle.protoTypes = {
+mainarticle: PropTypes.object.isRequired,
+}; */}
 
-export default SmallArticles;
+export default SmallerArticles;

@@ -1,32 +1,24 @@
 import React from 'react';
 import MainArticle from '../Article/MainArticle.js';
+import SmallerArticles from '../SmallArticles/SmallArticles.js';
 import Sidebar from '../Sidebar/Sidebar.js';
-import PropTypes from 'prop-types';
 import './Articles.css';
 
 
-function Articles({ loading, articles, featuredArticle, smallArticles }) {
+function Articles({ articles, featuredArticle, smallArticles }) {
     
 
     return (
         <div className='page--wrapper'>
-        {
-            loading ? (
-                "Loading..."
-            ) : (
-                
                 <div className="articles" >
                     <MainArticle featuredArticle={featuredArticle} smallArticles={smallArticles}/>
+                    {smallArticles.map((article) => {
+                        <SmallerArticles article={article}/>
+                    })}
                     <Sidebar articles={articles}/>
-                </div>)}
+                </div>
         </div>
     );
 }
-
-
-// Articles.propTypes = {
-//     loading: PropTypes.bool.isRequired,
-//     articles: PropTypes.array.isRequired,
-// };
 
 export default Articles;
