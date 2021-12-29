@@ -4,6 +4,13 @@
 }
 .articles {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: 85vw;
+    height: min-content;
+}
+.smaller-articles--container {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
 }

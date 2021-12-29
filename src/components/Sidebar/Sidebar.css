@@ -1,3 +1,17 @@
 .sidebar {
-    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 15vw;
+}
+.sidebar__card {
+    width: 15rem;
+    height: 10rem;
+    margin: 2.5rem 0;
+}
+.sidebar__card img {
+    border-radius: 5px;
+}
+.sidebar__card h6, a {
+    font-size: 1.1rem;
 }

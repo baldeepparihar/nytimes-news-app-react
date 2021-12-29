@@ -1,9 +1,11 @@
 .main-article__card {
     display: flex;
-    margin: 2rem 4rem;
+    margin: 1.5rem 0;
 }
 .main-article__card img {
     border-radius: 10px;
+    display: flex;
+    width: 70%;
 }
 .main-article__content--container {
     display: flex;
@@ -13,13 +15,13 @@
     padding: 4rem;
 }
 
-.main-article__content--container h6, a {
+.main-article__card .main-article__content--container h6, a {
     text-decoration: none;
     color: black;
     font-weight: 700;
     font-size: 2.5rem;
 }
-.main-article__content--container h6 {
+.main-article__card .main-article__content--container h6 {
     margin-bottom: 2rem;
 }
 .main-article__content--container p {

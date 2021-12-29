@@ -1,7 +1,22 @@
 .smaller-article {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
 }
 .smaller-article__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.smaller-article__card img {
     width: 10rem;
-    height: 10rem;
+    height: 7rem;
+    border-radius: 5px;
+}
+.smaller-article__card h6, a {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
 }

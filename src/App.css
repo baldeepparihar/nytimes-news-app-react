@@ -28,4 +28,5 @@ html {
     align-items: baseline;
     margin: auto;
     max-width: 1500px;
+    padding: 0 150px;
   }
