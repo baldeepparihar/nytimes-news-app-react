@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.navbar__logo--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    color: orange;
+}
+.navbar__sections {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

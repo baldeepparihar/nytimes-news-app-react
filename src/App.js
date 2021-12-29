@@ -1,11 +1,13 @@
 import React, {useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Spinner from './components/Spinner/Spinner';
 import Articles from './components/Articles/Articles';
 import TopStories from './components/TopStories/TopStories';
 import Search from './components/Search/Search';
 import axios from 'axios';
 import { Typography, Container, Link } from "@material-ui/core";
+import './App.css';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -40,30 +42,37 @@ const App = () => {
   console.log(articles)
 
   return (
-        <div>
-            <Navbar/>
-                <Container>
-                  <Typography color="textPrimary" gutterBottom variant="h2" align="center">
-                  <BrowserRouter>
-                    <Routes>
-                      <Route path="/" 
-                      element={
-                        <>
-                          <Search searchArticles={searchArticles}/> 
-                            <Link>
-                              <Articles loading={loading} articles={articles} />
-                            </Link>
-                        </> 
-                      } 
-                      />
-                      <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
+    <div>
+          {loading ? 
+          (
+            <Spinner />
+          ) : (
+            <div>
+                <Navbar/>
+                    <Container>
+                      <Typography color="textPrimary" gutterBottom variant="h2" align="center">
+                      <BrowserRouter>
+                        <Routes>
+                          <Route path="/" 
+                          element={
+                            <>
+                              <Search searchArticles={searchArticles}/> 
+                                <Link>
+                                  <Articles loading={loading} articles={articles} />
+                                </Link>
+                            </> 
+                          } 
+                          />
+                          <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
 
-                    </Routes>
-                  </BrowserRouter>
-                  </Typography>
-                </Container>
-        </div>
-  );
-}
+                        </Routes>
+                      </BrowserRouter>
+                      </Typography>
+                    </Container>
+            </div>
+        )}
+    </div>
+  )
+};
 
 export default App;
