@@ -42,8 +42,8 @@ const TopStory = ({ topStory }) => {
     )
 }
 
-TopStory.propTypes = {
-    topStory: PropTypes.object.isRequired,
-};
+// TopStory.propTypes = {
+//     topStory: PropTypes.object.isRequired,
+// };
 
 export default TopStory;

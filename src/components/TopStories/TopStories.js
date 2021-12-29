@@ -59,9 +59,9 @@ function TopStories({ loading, topStories, getTopArticles }) {
     );
 }
 
-TopStories.propTypes = {
-    loading: PropTypes.bool.isRequired,
-    topStories: PropTypes.array.isRequired,
-};
+// TopStories.propTypes = {
+//     loading: PropTypes.bool.isRequired,
+//     topStories: PropTypes.array.isRequired,
+// };
 
 export default TopStories;

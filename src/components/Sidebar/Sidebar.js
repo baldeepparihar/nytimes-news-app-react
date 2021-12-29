@@ -38,9 +38,9 @@ function Sidebar({ articles }) {
 }
 
 
-Sidebar.propTypes = {
-    loading: PropTypes.bool.isRequired,
-    articles: PropTypes.array.isRequired,
-};
+// Sidebar.propTypes = {
+//     loading: PropTypes.bool.isRequired,
+//     articles: PropTypes.array.isRequired,
+// };
 
 export default Sidebar;

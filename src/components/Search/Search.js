@@ -39,8 +39,8 @@ const Search = ({ searchArticles }) => {
     );
 };
 
-Search.propTypes = {
-    searchArticles: PropTypes.func.isRequired,
-}
+// Search.propTypes = {
+//     searchArticles: PropTypes.func.isRequired,
+// }
 
 export default Search;

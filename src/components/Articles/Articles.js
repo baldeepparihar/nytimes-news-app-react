@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import './Articles.css';
 
 
-function Articles({ loading, articles }) {
-
-    const featuredArticle = articles[0]
+function Articles({ loading, articles, featuredArticle, smallArticles }) {
+    
 
     return (
         <div className='page--wrapper'>
@@ -15,20 +14,19 @@ function Articles({ loading, articles }) {
             loading ? (
                 "Loading..."
             ) : (
+                
                 <div className="articles" >
-                        {articles.map((article) => (
-                                <MainArticle featuredArticle={featuredArticle} article={article} />
-                        ))}
+                    <MainArticle featuredArticle={featuredArticle} smallArticles={smallArticles}/>
+                    <Sidebar articles={articles}/>
                 </div>)}
-                <Sidebar articles={articles}/>
         </div>
     );
 }
 
 
-Articles.propTypes = {
-    loading: PropTypes.bool.isRequired,
-    articles: PropTypes.array.isRequired,
-};
+// Articles.propTypes = {
+//     loading: PropTypes.bool.isRequired,
+//     articles: PropTypes.array.isRequired,
+// };
 
 export default Articles;
