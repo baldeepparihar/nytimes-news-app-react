@@ -53,7 +53,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
             <div className='sidebar-one'>
             <h1>Science</h1>
                     {sidebarOne?.length && sidebarOne.map((article) => (
-                <div className="sidebar">
+                <div className="sidebar" id={article._id}>
                     {article && (
                         <div className="sidebar__card" id={article._id}>
                             <img className="sidebar__img"
@@ -74,7 +74,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
             <div className='sidebar-two'>
                 <h1>Technology</h1>
                     {sidebarTwo?.length && sidebarTwo.map((article) => (
-                <div className="sidebar">
+                <div className="sidebar" id={article._id}>
                     {article && (
                         <div className="sidebar__card" id={article._id}>
                             <img className="sidebar__img"

@@ -112,10 +112,15 @@ const App = () => {
     console.log("My Search Results: ", res.data.response.docs)
   };
 
-  const getTopArticles = async (section) => {
-    const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+  const getTopArticles = (section) => {
+    try {
+    const res = axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setTopStories("Get Top Articles: ", res.data.response.docs);
     console.log(res.data.response.docs)
+
+  } catch(e) {
+    console.log("Error: ", e);
+  }
   };
 
   return (
@@ -151,7 +156,7 @@ const App = () => {
                       </div> 
                     } 
                     />
-                    <Route path="topstories" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
+                    <Route path="topstories/:section" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
                   </Routes>
                 </BrowserRouter>
             </div>

@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 function TopStories({ loading, topStories, getTopArticles }) {
 
     useEffect(() => {
-        getTopArticles('world')
+        getTopArticles("World")
     }, [getTopArticles])
     return (
         <div>

@@ -156,31 +156,31 @@ function RemainingArticles({
             <div>
                 <h1>Business Day</h1>
                 {businessDay?.length && businessDay.map((article) => (
-                    <BusinessDay article={article} />
+                    <BusinessDay article={article} id={article._id} />
                 ))}
             </div>
             <div>
                 <h1>Sports</h1>
                 {sports?.length && sports.map((article) => (
-                    <Sports article={article} />
+                    <Sports article={article} id={article._id} />
                 ))}
             </div>
             <div>
                 <h1>Culture</h1>
                 {culture?.length && culture.map((article) => (
-                    <Culture article={article} />
+                    <Culture article={article} id={article._id} />
                 ))}
             </div>
             <div>
                 <h1>Wealth</h1>
                 {wealth?.length && wealth.map((article) => (
-                    <Wealth article={article} />
+                    <Wealth article={article} id={article._id} />
                 ))}
             </div>
             <div>
                 <h1>Food</h1>
                 {food?.length && food.map((article) => (
-                    <Food article={article} />
+                    <Food article={article} id={article._id} />
                 ))}
             </div>
         </div>
