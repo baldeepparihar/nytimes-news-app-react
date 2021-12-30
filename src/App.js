@@ -21,6 +21,7 @@ const App = () => {
   const [food, setFood] = useState([]);
   const [sidebarOne, setSidebarOne] = useState([]);
   const [sidebarTwo, setSidebarTwo] = useState([]);
+  const [weather, setWeather] = useState([]);
   
 
   useEffect(() => {
@@ -44,6 +45,7 @@ const App = () => {
     getWealth();
     getFood();
     getSidebar();
+    getWeather();
   }, []);
 
   const getSports = async () => {
@@ -104,6 +106,11 @@ const App = () => {
     }
   };
 
+  const getWeather = async () => {
+    const res = await axios.get(`https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${process.env.REACT_APP_WEATHER_API_KEY}&q="Vancouver"&format=json`)
+    setWeather(res.data.data);
+  };
+
   const searchArticles = async (text) => {
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setArticles(res.data.response.docs);
@@ -114,11 +121,7 @@ const App = () => {
     const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setTopStories(res.data.response.docs);
     console.log(res.data.response.docs)
-  }
-  
-  // console.log("Articles from app: ", articles)
-  // console.log("Featured Article from app: ", featuredArticle)
-  // console.log("Small Articles from app: ", smallArticles)
+  };
 
   return (
     <div className="app">
@@ -148,6 +151,7 @@ const App = () => {
                           food={food}
                           sidebarOne={sidebarOne}
                           sidebarTwo={sidebarTwo}
+                          weather={weather}
                           />
                       </div> 
                     } 

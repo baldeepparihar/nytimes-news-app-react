@@ -7,7 +7,6 @@ import './Articles.css';
 
 
 function Articles({ 
-            articles, 
             featuredArticle,
             smallArticles, 
             sports,
@@ -16,7 +15,8 @@ function Articles({
             wealth,
             food,
             sidebarOne,
-            sidebarTwo
+            sidebarTwo,
+            weather
         }) {
     
 
@@ -41,6 +41,7 @@ function Articles({
                     <Sidebar 
                     sidebarOne={sidebarOne}
                     sidebarTwo={sidebarTwo}
+                    weather={weather}
                     />
                 </div>
         </div>

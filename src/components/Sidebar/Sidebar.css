@@ -1,8 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     flex-basis: 15vw;
+}
+.weather {
+    margin: 2rem 0;
+}
+.current__weather h1 {
+    font-family: 'Anton', sans-serif;
+    color: orange;
+    margin-bottom: 1rem;
+}
+.current__weather p {
+    font-size: 1.6rem;
+    color: orange;
+}
+.forecast {
+    margin-top: 3rem;
+}
+.forecast h1 {
+    font-family: 'Anton', sans-serif;
+    color: orange;
+}
+.forecast__day--wrapper {
+    margin: 1rem 0;
+}
+.forecast p {
+    font-size: 1.6rem;
+    color: orange;
+}
+.forecast .date-string {
+    font-size: 1.2rem;
+    color: orange;
 }
 .sidebar-one {
     display: block;
