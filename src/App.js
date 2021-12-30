@@ -52,7 +52,6 @@ const App = () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Sports")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setSports(res.data.response.docs);
-      console.log("Adventure Sports", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -61,7 +60,6 @@ const App = () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Business Day")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setBusinessDay(res.data.response.docs);
-      console.log("Business Day", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -70,7 +68,6 @@ const App = () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Culture")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setCulture(res.data.response.docs);
-      console.log("Culture", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -79,7 +76,6 @@ const App = () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Wealth")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setWealth(res.data.response.docs);
-      console.log("Wealth", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -88,7 +84,6 @@ const App = () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Food")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
       setFood(res.data.response.docs);
-      console.log("Food", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -114,12 +109,12 @@ const App = () => {
   const searchArticles = async (text) => {
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setArticles(res.data.response.docs);
-    console.log(res.data.response.docs)
+    console.log("My Search Results: ", res.data.response.docs)
   };
 
   const getTopArticles = async (section) => {
     const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-    setTopStories(res.data.response.docs);
+    setTopStories("Get Top Articles: ", res.data.response.docs);
     console.log(res.data.response.docs)
   };
 
@@ -133,7 +128,7 @@ const App = () => {
             </div>
           ) : (
             <div>
-              <Navbar/>
+              <Navbar getTopArticles={getTopArticles}/>
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" 

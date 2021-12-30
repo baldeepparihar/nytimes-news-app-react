@@ -16,7 +16,6 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
     let day3 = new Date(forecast3);
     let dayOfWeek3 = day3.getDay();
 
-    console.log(weather)
     return (
         <div>
             {weather && (
@@ -29,7 +28,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
                     <p>{weather?.current_condition?.[0]?.weatherDesc?.[0]?.value}</p>
                 </div>
                 <div className="forecast">
-                    <h1>Forecast for next 3 days</h1>
+                    <h1>Forecast for the next 3 days</h1>
                     <div className='forecast__day--wrapper'>
                         <p>{daysOfWeek[dayOfWeek1]}</p>
                         <p className='date-string'>{weather && weather.weather?.[2]?.date}</p>
@@ -53,7 +52,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
             )}
             <div className='sidebar-one'>
             <h1>Science</h1>
-                    {sidebarOne.map((article) => (
+                    {sidebarOne?.length && sidebarOne.map((article) => (
                 <div className="sidebar">
                     {article && (
                         <div className="sidebar__card" id={article._id}>
@@ -74,7 +73,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
             </div>
             <div className='sidebar-two'>
                 <h1>Technology</h1>
-                    {sidebarTwo.map((article) => (
+                    {sidebarTwo?.length && sidebarTwo.map((article) => (
                 <div className="sidebar">
                     {article && (
                         <div className="sidebar__card" id={article._id}>

@@ -2,7 +2,14 @@ import React from 'react';
 import Blahbble from '../../assets/blahbble-logo.png';
 import './Navbar.css';
 
-export default function Navbar() {
+function Navbar({ getTopArticles }) {
+
+    function handleClick(e) {
+        console.log('clicked');
+        let section = JSON.stringify(e.target.innerText);
+        getTopArticles(e.target.innerText);
+    }
+
     return (
         <div className="navbar">
             <div className="navbar__logo--container">
@@ -10,25 +17,31 @@ export default function Navbar() {
                 <h1>News</h1>
             </div>
             <div className="navbar__sections">
-                <p>World</p>
-                <p>U.S.</p>
-                <p>Politics</p>
-                <p>N.Y.</p>
-                <p>Business</p>
-                <p>Opinion</p>
-                <p>Tech</p>
-                <p>Science</p>
-                <p>Health</p>
-                <p>Sports</p>
-                <p>Arts</p>
-                <p>Books</p>
-                <p>Style</p>
-                <p>Food</p>
-                <p>Travel</p>
-                <p>Magazine</p>
-                <p>T Magazine</p>
-                <p>Video</p>
+                <div className="navbar__section1">
+                    <p onClick={(e) => {handleClick(e)}}>World</p>
+                    <p onClick={(e) => {handleClick(e)}}>U.S.</p>
+                    <p onClick={(e) => {handleClick(e)}}>Politics</p>
+                    <p onClick={(e) => {handleClick(e)}}>N.Y.</p>
+                    <p onClick={(e) => {handleClick(e)}}>Business</p>
+                    <p onClick={(e) => {handleClick(e)}}>Opinion</p>
+                    <p onClick={(e) => {handleClick(e)}}>Tech</p>
+                    <p onClick={(e) => {handleClick(e)}}>Science</p>
+                    <p onClick={(e) => {handleClick(e)}}>Health</p>
+                    <p onClick={(e) => {handleClick(e)}}>Sports</p>
+                </div>
+                <div className="navbar__section2">
+                    <p onClick={(e) => {handleClick(e)}}>Arts</p>
+                    <p onClick={(e) => {handleClick(e)}}>Books</p>
+                    <p onClick={(e) => {handleClick(e)}}>Style</p>
+                    <p onClick={(e) => {handleClick(e)}}>Food</p>
+                    <p onClick={(e) => {handleClick(e)}}>Travel</p>
+                    <p onClick={(e) => {handleClick(e)}}>Magazine</p>
+                    <p onClick={(e) => {handleClick(e)}}>T Magazine</p>
+                    <p onClick={(e) => {handleClick(e)}}>Video</p>
+                </div>
             </div>
         </div>
     )
 }
+
+export default Navbar;

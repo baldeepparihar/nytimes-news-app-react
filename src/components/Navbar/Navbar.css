@@ -59,6 +59,19 @@ html {
   bottom: -1rem;
   left: 0;
 }
+.navbar__section1 {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 50%;
+}
+.navbar__section2 {
+  display: flex;
+  justify-content: space-around;
+  flex-basis: 50%;
+}
 .navbar__sections p {
     font-size: 1.4rem;
+}
+.navbar__sections p:hover {
+  cursor: pointer;
 }
