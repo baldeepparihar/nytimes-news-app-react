@@ -6,7 +6,18 @@ import Sidebar from '../Sidebar/Sidebar.js';
 import './Articles.css';
 
 
-function Articles({ articles, featuredArticle, smallArticles, adventureSports }) {
+function Articles({ 
+            articles, 
+            featuredArticle,
+            smallArticles, 
+            sports,
+            businessDay,
+            culture,
+            wealth,
+            food,
+            sidebarOne,
+            sidebarTwo
+        }) {
     
 
     return (
@@ -19,10 +30,19 @@ function Articles({ articles, featuredArticle, smallArticles, adventureSports })
                     ))}
                     </div>
                 <RemainingArticles
-                    adventureSports={adventureSports}
+                    sports={sports}
+                    businessDay={businessDay}
+                    culture={culture}
+                    wealth={wealth}
+                    food={food}
                 />
                 </div>
-                <Sidebar articles={articles}/>
+                <div>
+                    <Sidebar 
+                    sidebarOne={sidebarOne}
+                    sidebarTwo={sidebarTwo}
+                    />
+                </div>
         </div>
     );
 }

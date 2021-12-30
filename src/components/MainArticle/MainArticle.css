@@ -24,6 +24,9 @@
 .main-article__card .main-article__content--container h6 {
     margin-bottom: 2rem;
 }
+.main-article__card .main-article__content--container a {
+    font-size: 2.5rem;
+}
 .main-article__content--container p {
     font-size: 1.8rem;
     margin-bottom: 1rem;

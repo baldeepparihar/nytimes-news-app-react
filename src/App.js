@@ -14,11 +14,13 @@ const App = () => {
   const [featuredArticle, setFeaturedArticle] = useState([]);
   const [smallArticles, setSmallArticles] = useState([]);
   const [topStories, setTopStories] = useState([]);
-  const [adventureSports, setAdventureSports] = useState([]);
+  const [sports, setSports] = useState([]);
   const [businessDay, setBusinessDay] = useState([]);
   const [culture, setCulture] = useState([]);
-  const [fashionStyle, setFashionStyle] = useState([]);
+  const [wealth, setWealth] = useState([]);
   const [food, setFood] = useState([]);
+  const [sidebarOne, setSidebarOne] = useState([]);
+  const [sidebarTwo, setSidebarTwo] = useState([]);
   
 
   useEffect(() => {
@@ -36,35 +38,18 @@ const App = () => {
       }
     };
     getArticles();
-    getAdventureSports();
+    getSports();
     getBusinessDay();
     getCulture();
-    getFashionStyle();
+    getWealth();
     getFood();
+    getSidebar();
   }, []);
 
-  // const getRemainingArticles = () => {
-  //   let endpoints = [
-      
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Health & Fitness")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Opinion")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Personal Tech")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Retail")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Sports")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Style")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`,
-  //     `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Technology")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`
-  //   ];
-  //   axios.all(endpoints.map((endpoint) => axios.get(endpoint)))
-  //   .then((res) => {
-  //     console.log("Multiple Endpoints: ", res)
-  //   })
-  // }
-
-  const getAdventureSports = async () => {
+  const getSports = async () => {
     try{
-      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Adventure Sports")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-      setAdventureSports(res.data.response.docs);
+      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Sports")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+      setSports(res.data.response.docs);
       console.log("Adventure Sports", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
@@ -88,11 +73,11 @@ const App = () => {
       console.log("Catch Error: ", e)
     }
   };
-  const getFashionStyle = async () => {
+  const getWealth = async () => {
     try{
-      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Fashion & Style")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-      setFashionStyle(res.data.response.docs);
-      console.log("Fashion Style", res.data.response.docs)
+      const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Wealth")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+      setWealth(res.data.response.docs);
+      console.log("Wealth", res.data.response.docs)
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -100,8 +85,20 @@ const App = () => {
   const getFood = async () => {
     try{
       const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Food")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-      setAdventureSports(res.data.response.docs);
+      setFood(res.data.response.docs);
       console.log("Food", res.data.response.docs)
+    } catch(e) {
+      console.log("Catch Error: ", e)
+    }
+  };
+
+  const getSidebar = async () => {
+    try{
+      const res1 = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Science")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+      const res2 = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:("Technology")&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+      setSidebarOne(res1.data.response.docs)
+      setSidebarTwo(res2.data.response.docs)
+
     } catch(e) {
       console.log("Catch Error: ", e)
     }
@@ -144,7 +141,13 @@ const App = () => {
                           articles={articles} 
                           featuredArticle={featuredArticle}
                           smallArticles={smallArticles}
-                          adventureSports={adventureSports}
+                          sports={sports}
+                          businessDay={businessDay}
+                          culture={culture}
+                          wealth={wealth}
+                          food={food}
+                          sidebarOne={sidebarOne}
+                          sidebarTwo={sidebarTwo}
                           />
                       </div> 
                     } 

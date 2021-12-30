@@ -1,0 +1,40 @@
+.remaining-articles--container > h1 {
+    font-size: 5rem;
+}
+.remaining-articles__card {
+    display: flex;
+    margin: 1.5rem 0;
+}
+.remaining-articles__card img {
+    border-radius: 10px;
+    display: flex;
+    width: 35%;
+    max-height: 30rem;
+}
+.remaining-articles__content--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+    padding: 4rem;
+}
+
+.remaining-articles__card .remaining-articles__content--container h6, a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+.remaining-articles__card .remaining-articles__content--container h6 {
+    margin-bottom: 2rem;
+}
+.remaining-articles__card .remaining-articles__content--container a {
+    font-size: 2rem;
+}
+.remaining-articles__content--container p {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.remaining-articles__byline {
+    font-style: italic;
+}
