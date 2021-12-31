@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Spinner from './components/Spinner/Spinner';
 import Articles from './components/Articles/Articles';
-import TopStories from './components/TopStories/TopStories';
+import TopStoriesArticles from './components/Articles/TopStoriesArticles';
+import SearchArticles from './components/Articles/SearchArticles';
 import Search from './components/Search/Search';
 import axios from 'axios';
 import './App.css';
@@ -13,6 +14,7 @@ const App = () => {
   const [articles, setArticles] = useState([]);
   const [featuredArticle, setFeaturedArticle] = useState([]);
   const [smallArticles, setSmallArticles] = useState([]);
+  const [search, setSearch] = useState([]);
   const [topStories, setTopStories] = useState([]);
   const [sports, setSports] = useState([]);
   const [businessDay, setBusinessDay] = useState([]);
@@ -108,27 +110,27 @@ const App = () => {
 
   const searchArticles = async (text) => {
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-    setArticles(res.data.response.docs);
+    setSearch(res.data.response.docs);
     console.log("My Search Results: ", res.data.response.docs)
   };
 
   const getTopArticles = (section) => {
     try {
     const res = axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-    setTopStories("Get Top Articles: ", res.data.response.docs);
-    console.log(res.data.response.docs)
+    setTopStories(res.data.response.docs);
+    console.log("Get Top Articles: ", res.data.response.docs)
 
   } catch(e) {
     console.log("Error: ", e);
   }
   };
 
+
   return (
     <div className="app">
           {loading ? 
           (
             <div>
-              <h1>loading in app</h1>
               <Spinner />
             </div>
           ) : (
@@ -138,25 +140,67 @@ const App = () => {
                   <Routes>
                     <Route path="/" 
                     element={
-                      <div>
-                        <Search searchArticles={searchArticles}/> 
-                        <Articles
-                          articles={articles} 
-                          featuredArticle={featuredArticle}
-                          smallArticles={smallArticles}
-                          sports={sports}
-                          businessDay={businessDay}
-                          culture={culture}
-                          wealth={wealth}
-                          food={food}
-                          sidebarOne={sidebarOne}
-                          sidebarTwo={sidebarTwo}
-                          weather={weather}
-                          />
-                      </div> 
+                      <div className='app__articles--container'>
+                          <Search searchArticles={searchArticles}/> 
+                          <Articles
+                            articles={articles} 
+                            featuredArticle={featuredArticle}
+                            smallArticles={smallArticles}
+                            sports={sports}
+                            businessDay={businessDay}
+                            culture={culture}
+                            wealth={wealth}
+                            food={food}
+                            sidebarOne={sidebarOne}
+                            sidebarTwo={sidebarTwo}
+                            weather={weather}
+                            />
+                      </div>
                     } 
                     />
-                    <Route path="topstories/:section" element={<TopStories loading={loading} topStories={topStories} getTopArticles={getTopArticles} />} />
+                    
+                    <Route path="topstories/:section" element={
+                      <div className='topstories__articles--container'>
+                        <Search searchArticles={searchArticles}/>
+                        <TopStoriesArticles 
+                        loading={loading} 
+                        topStories={topStories} 
+                        getTopArticles={getTopArticles}
+                        search={search} 
+                        articles={articles} 
+                        featuredArticle={featuredArticle}
+                        smallArticles={smallArticles}
+                        sports={sports}
+                        businessDay={businessDay}
+                        culture={culture}
+                        wealth={wealth}
+                        food={food}
+                        sidebarOne={sidebarOne}
+                        sidebarTwo={sidebarTwo}
+                        weather={weather}
+                        />
+                      </div>
+                        } />
+                    <Route path="searchresults/:search" element={
+                    <div className='search__articles--container'>
+                        <Search searchArticles={searchArticles}/>
+                        <SearchArticles 
+                        topStories={topStories} 
+                        search={search} 
+                        articles={articles} 
+                        featuredArticle={featuredArticle}
+                        smallArticles={smallArticles}
+                        sports={sports}
+                        businessDay={businessDay}
+                        culture={culture}
+                        wealth={wealth}
+                        food={food}
+                        sidebarOne={sidebarOne}
+                        sidebarTwo={sidebarTwo}
+                        weather={weather}
+                        />
+                    </div>
+                    } />
                   </Routes>
                 </BrowserRouter>
             </div>

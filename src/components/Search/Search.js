@@ -1,9 +1,12 @@
 import React, { useState } from  'react';
+import { useNavigate } from 'react-router';
 import { TextField, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import './Search.css';
 
-const Search = ({ searchArticles }) => {
+const Search = ({ searchArticles, search }) => {
     const [text, setText] = useState('');
+    const navigate = useNavigate();
     
     const handleChange = (e) => {
         setText(e.target.value)
@@ -12,6 +15,7 @@ const Search = ({ searchArticles }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         searchArticles(text);
+        navigate(`searchresults/${search}`)
     };
 
     return (

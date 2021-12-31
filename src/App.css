@@ -30,3 +30,21 @@ html {
     max-width: 1500px;
     padding: 0 150px;
   }
+  .app__articles--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .search__articles--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .topstories__articles--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
