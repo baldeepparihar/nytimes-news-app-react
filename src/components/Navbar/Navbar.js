@@ -6,6 +6,7 @@ function Navbar() {
 
     function handleClick(e) {
         let sectionName = e.target.innerText;
+        // setSectionName(e.target.innerText)
         window.location.pathname = `/topstories/${sectionName}`
     }
 

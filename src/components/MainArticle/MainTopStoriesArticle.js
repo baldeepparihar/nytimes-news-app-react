@@ -7,7 +7,7 @@ function MainTopStoriesArticle({ topStories }) {
         <div className="main-article">
             {topStories?.length && (
             <div className="main-article--container">
-                <div className="main-article__card" id={topStories?.[0]._id}>
+                <div className="main-article__card" id={topStories?.[0]?.uri}>
                     <img className="main-article__img"
                     src={topStories?.[0]?.multimedia?.[0]?.url ? 
                         `https://nytimes.com/${topStories?.[0]?.multimedia?.[0]?.url}` :
@@ -15,15 +15,15 @@ function MainTopStoriesArticle({ topStories }) {
                     } alt="news-img" />
                     <div className='main-article__content--container'>
                         <h6 className='main-article__header'>
-                            <a href={topStories?.[0]?.web_url} target="_blank" rel="noreferrer">
-                                {topStories?.[0]?.headline?.main}
+                            <a href={topStories?.[0]?.short_url} target="_blank" rel="noreferrer">
+                                {topStories?.[0]?.title}
                             </a>
                         </h6>
                         <p className='main-article__byline'>
-                            {topStories?.[0]?.byline?.original}
+                            {topStories?.[0]?.byline}
                         </p>
                         <p className='main-article__snippet'>
-                            {topStories?.[0]?.snippet}
+                            {topStories?.[0]?.abstract}
                         </p>
                     </div>
                 </div>

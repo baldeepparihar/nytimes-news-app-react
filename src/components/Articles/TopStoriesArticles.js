@@ -20,16 +20,21 @@ function SearchArticles({
             weather,
             search,
             topStories,
+            smallTopStories,
             getTopArticles
         }) {
             const { pathname } = useLocation();
-            let section = pathname.split('/').pop()
-            let sectionString = section.toString()
+              
 
         useEffect(() => {
-            getTopArticles(sectionString);
-            console.log(topStories);
-        }, [getTopArticles])
+            let section = pathname.split('/').pop()
+
+            if(section.length){
+                getTopArticles(section)
+            }
+                console.log(topStories)
+                console.log(smallTopStories)
+        }, [])
     
 
     return (
@@ -37,8 +42,8 @@ function SearchArticles({
                 <div className="articles" >
                 <MainTopStoriesArticle topStories={topStories} featuredArticle={featuredArticle}/>
                     <div className="smaller-articles--container">
-                    {smallArticles.map((article) => (
-                        <SmallTopStoriesArticles className="smaller-articles" topStories={topStories} article={article} key={article._id}/>
+                    {smallTopStories.length && smallTopStories.map((article) => (
+                        <SmallTopStoriesArticles className="smaller-articles" article={article}/>
                     ))}
                     </div>
                 <RemainingArticles

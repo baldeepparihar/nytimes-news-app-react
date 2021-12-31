@@ -16,6 +16,7 @@ const App = () => {
   const [smallArticles, setSmallArticles] = useState([]);
   const [search, setSearch] = useState([]);
   const [topStories, setTopStories] = useState([]);
+  const [smallTopStories, setSmallTopStories] = useState([]);
   const [sports, setSports] = useState([]);
   const [businessDay, setBusinessDay] = useState([]);
   const [culture, setCulture] = useState([]);
@@ -24,6 +25,7 @@ const App = () => {
   const [sidebarOne, setSidebarOne] = useState([]);
   const [sidebarTwo, setSidebarTwo] = useState([]);
   const [weather, setWeather] = useState([]);
+  const [sectionName, setSectionName] = useState('');
   
 
   useEffect(() => {
@@ -111,14 +113,16 @@ const App = () => {
   const searchArticles = async (text) => {
     const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setSearch(res.data.response.docs);
-    console.log("My Search Results: ", res.data.response.docs)
   };
 
-  const getTopArticles = (section) => {
+  const getTopArticles = async (section) => {
     try {
-    const res = axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
-    setTopStories(res.data.response.docs);
-    console.log("Get Top Articles: ", res.data.response.docs)
+    setSectionName(section)
+    const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+    setTopStories(res.data.results.slice(1, 2))
+    setSmallTopStories(res.data.results.slice(2, 6))
+
+    console.log("Section Name: ", sectionName)
 
   } catch(e) {
     console.log("Error: ", e);
@@ -135,7 +139,7 @@ const App = () => {
             </div>
           ) : (
             <div>
-              <Navbar getTopArticles={getTopArticles}/>
+              <Navbar />
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" 
@@ -164,8 +168,6 @@ const App = () => {
                         <Search searchArticles={searchArticles}/>
                         <TopStoriesArticles 
                         loading={loading} 
-                        topStories={topStories} 
-                        getTopArticles={getTopArticles}
                         search={search} 
                         articles={articles} 
                         featuredArticle={featuredArticle}
@@ -178,6 +180,10 @@ const App = () => {
                         sidebarOne={sidebarOne}
                         sidebarTwo={sidebarTwo}
                         weather={weather}
+                        topStories={topStories}
+                        smallTopStories={smallTopStories}
+                        getTopArticles={getTopArticles}
+                        setSectionName={setSectionName}
                         />
                       </div>
                         } />
