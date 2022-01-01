@@ -25,8 +25,8 @@ function Articles({
                 <div className="articles" >
                 <MainArticle featuredArticle={featuredArticle}/>
                     <div className="smaller-articles--container">
-                    {smallArticles.map((article) => (
-                        <SmallerArticles className="smaller-articles" article={article} key={article._id}/>
+                    {smallArticles.map((smallArticle) => (
+                        <SmallerArticles className="smaller-articles" smallArticle={smallArticle} key={smallArticle._id}/>
                     ))}
                     </div>
                 <RemainingArticles

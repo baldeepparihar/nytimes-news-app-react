@@ -9,10 +9,7 @@ function MainTopStoriesArticle({ topStories }) {
             <div className="main-article--container">
                 <div className="main-article__card" id={topStories?.[0]?.uri}>
                     <img className="main-article__img"
-                    src={topStories?.[0]?.multimedia?.[0]?.url ? 
-                        `https://nytimes.com/${topStories?.[0]?.multimedia?.[0]?.url}` :
-                        'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'
-                    } alt="news-img" />
+                    src={topStories?.[0]?.multimedia?.[0]?.url} alt="news-img" />
                     <div className='main-article__content--container'>
                         <h6 className='main-article__header'>
                             <a href={topStories?.[0]?.short_url} target="_blank" rel="noreferrer">

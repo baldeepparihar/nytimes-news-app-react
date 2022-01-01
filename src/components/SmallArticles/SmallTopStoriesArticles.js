@@ -1,20 +1,20 @@
 import React from 'react';
-import './SmallArticles.css';
+import './SmallTopStoriesArticles.css';
 
 
-const SmallTopStoriesArticles = ({ article }) => {
+const SmallTopStoriesArticles = ({ smallTopStoriesArticle }) => {
     return(
-        <div className="smaller-article">
-                {article && (
-                <div className="smaller-article__card" id={article.uri}>
-                    <img className="smaller-article__img"
-                    src={article.multimedia?.[0]?.url ? 
-                        `https://nytimes.com/${article.multimedia[0].url}` :
+        <div className="smallertopstories-article">
+                {smallTopStoriesArticle && (
+                <div className="smallertopstories-article__card" id={smallTopStoriesArticle.uri}>
+                    <img
+                    src={smallTopStoriesArticle.multimedia?.[0]?.url ? 
+                        `${smallTopStoriesArticle.multimedia?.[0]?.url}` :
                         'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'
                     } alt="news-img" />
-                        <h6 className='smaller-article__header'>
-                            <a href={article.short_url} target="_blank" rel="noreferrer">
-                                {article.title}
+                        <h6>
+                            <a href={smallTopStoriesArticle.short_url} target="_blank" rel="noreferrer">
+                                {smallTopStoriesArticle.title}
                             </a>
                         </h6>
                 </div>

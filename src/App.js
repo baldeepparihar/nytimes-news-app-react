@@ -120,7 +120,7 @@ const App = () => {
     setSectionName(section)
     const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
     setTopStories(res.data.results.slice(1, 2))
-    setSmallTopStories(res.data.results.slice(2, 6))
+    setSmallTopStories(res.data.results.slice(4, 9))
 
     console.log("Section Name: ", sectionName)
 
@@ -165,7 +165,6 @@ const App = () => {
                     
                     <Route path="topstories/:section" element={
                       <div className='topstories__articles--container'>
-                        <Search searchArticles={searchArticles}/>
                         <TopStoriesArticles 
                         loading={loading} 
                         search={search} 

@@ -26,8 +26,8 @@ function SearchArticles({
                 <div className="articles" >
                 <MainSearchArticle search={search} featuredArticle={featuredArticle}/>
                     <div className="smaller-articles--container">
-                    {smallArticles.map((article) => (
-                        <SmallSearchArticles className="smaller-articles" search={search} article={article} key={article._id}/>
+                    {smallArticles?.length && smallArticles.map((smallSearchArticle) => (
+                        <SmallSearchArticles className="smaller-articles" smallSearchArticle={smallSearchArticle} key={smallSearchArticle._id}/>
                     ))}
                     </div>
                 <RemainingArticles

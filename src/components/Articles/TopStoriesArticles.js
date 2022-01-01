@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import MainTopStoriesArticle from '../MainArticle/MainTopStoriesArticle.js';
-import SmallTopStoriesArticles from '../SmallArticles/SmallSearchArticles.js';
+import SmallTopStoriesArticles from '../SmallArticles/SmallTopStoriesArticles.js';
 import RemainingArticles from '../RemainingArticles/RemainingArticles.js';
 import Sidebar from '../Sidebar/Sidebar.js';
 import './Articles.css';
 
 
-function SearchArticles({ 
-            featuredArticle,
-            smallArticles, 
+function TopStoriesArticles({  
             sports,
             businessDay,
             culture,
@@ -40,10 +38,10 @@ function SearchArticles({
     return (
         <div className='page--wrapper'>
                 <div className="articles" >
-                <MainTopStoriesArticle topStories={topStories} featuredArticle={featuredArticle}/>
+                <MainTopStoriesArticle topStories={topStories} />
                     <div className="smaller-articles--container">
-                    {smallTopStories.length && smallTopStories.map((article) => (
-                        <SmallTopStoriesArticles className="smaller-articles" article={article}/>
+                    {smallTopStories.length && smallTopStories.map((smallTopStoriesArticle) => (
+                        <SmallTopStoriesArticles smallTopStoriesArticle={smallTopStoriesArticle}/>
                     ))}
                     </div>
                 <RemainingArticles
@@ -66,4 +64,4 @@ function SearchArticles({
     );
 }
 
-export default SearchArticles;
+export default TopStoriesArticles;

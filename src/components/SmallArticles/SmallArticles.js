@@ -2,19 +2,18 @@ import React from 'react';
 import './SmallArticles.css';
 
 
-const SmallerArticles = ({ article }) => {
+const SmallerArticles = ({ smallArticle }) => {
     return(
         <div className="smaller-article">
-                {article && (
-                <div className="smaller-article__card" id={article._id}>
-                    <img className="smaller-article__img"
-                    src={article.multimedia?.[0]?.url ? 
-                        `https://nytimes.com/${article.multimedia[0].url}` :
+                {smallArticle && (
+                <div className="smaller-article__card" id={smallArticle._id}>
+                    <img src={smallArticle.multimedia?.[0]?.url ? 
+                        `https://nytimes.com/${smallArticle.multimedia[0].url}` :
                         'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'
                     } alt="news-img" />
-                        <h6 className='smaller-article__header'>
-                            <a href={article.web_url} target="_blank" rel="noreferrer">
-                                {article.headline.main}
+                        <h6>
+                            <a href={smallArticle.web_url} target="_blank" rel="noreferrer">
+                                {smallArticle.headline.main}
                             </a>
                         </h6>
                 </div>
