@@ -3,6 +3,7 @@ import './MainArticle.css';
 
 
 function MainArticle({ featuredArticle }) {
+    console.log(featuredArticle)
     return(
         <div className="main-article">
             {featuredArticle?.length && (

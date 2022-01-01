@@ -5,8 +5,7 @@ import './Navbar.css';
 function Navbar() {
 
     function handleClick(e) {
-        let sectionName = e.target.innerText;
-        // setSectionName(e.target.innerText)
+        let sectionName = e.target.innerText.toLowerCase();
         window.location.pathname = `/topstories/${sectionName}`
     }
 
@@ -20,25 +19,25 @@ function Navbar() {
             <div className="navbar__sections">
                 <div className="navbar__section1">
                     <p onClick={(e) => {handleClick(e)}}>World</p>
-                    <p onClick={(e) => {handleClick(e)}}>U.S.</p>
+                    <p onClick={(e) => {handleClick(e)}}>US</p>
                     <p onClick={(e) => {handleClick(e)}}>Politics</p>
-                    <p onClick={(e) => {handleClick(e)}}>N.Y.</p>
+                    <p onClick={(e) => {handleClick(e)}}>Automobiles</p>
                     <p onClick={(e) => {handleClick(e)}}>Business</p>
                     <p onClick={(e) => {handleClick(e)}}>Opinion</p>
-                    <p onClick={(e) => {handleClick(e)}}>Tech</p>
+                    <p onClick={(e) => {handleClick(e)}}>Technology</p>
                     <p onClick={(e) => {handleClick(e)}}>Science</p>
                     <p onClick={(e) => {handleClick(e)}}>Health</p>
-                    <p onClick={(e) => {handleClick(e)}}>Sports</p>
                 </div>
                 <div className="navbar__section2">
+                    <p onClick={(e) => {handleClick(e)}}>Sports</p>
                     <p onClick={(e) => {handleClick(e)}}>Arts</p>
                     <p onClick={(e) => {handleClick(e)}}>Books</p>
-                    <p onClick={(e) => {handleClick(e)}}>Style</p>
+                    <p onClick={(e) => {handleClick(e)}}>Movies</p>
                     <p onClick={(e) => {handleClick(e)}}>Food</p>
                     <p onClick={(e) => {handleClick(e)}}>Travel</p>
                     <p onClick={(e) => {handleClick(e)}}>Magazine</p>
-                    <p onClick={(e) => {handleClick(e)}}>T Magazine</p>
-                    <p onClick={(e) => {handleClick(e)}}>Video</p>
+                    <p onClick={(e) => {handleClick(e)}}>Theater</p>
+                    <p onClick={(e) => {handleClick(e)}}>NYregion</p>
                 </div>
             </div>
         </div>

@@ -165,9 +165,10 @@ const App = () => {
                     
                     <Route path="topstories/:section" element={
                       <div className='topstories__articles--container'>
+                        <Search searchArticles={searchArticles}/>
                         <TopStoriesArticles 
                         loading={loading} 
-                        search={search} 
+                        search={search}
                         articles={articles} 
                         featuredArticle={featuredArticle}
                         smallArticles={smallArticles}
@@ -191,7 +192,7 @@ const App = () => {
                         <Search searchArticles={searchArticles}/>
                         <SearchArticles 
                         topStories={topStories} 
-                        search={search} 
+                        search={search}
                         articles={articles} 
                         featuredArticle={featuredArticle}
                         smallArticles={smallArticles}

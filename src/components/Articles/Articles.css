@@ -37,3 +37,12 @@ html {
     justify-content: flex-start;
     width: 60%;
 }
+
+@media(max-width: 1200px) {
+  .smaller-articles--container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+  }
+}

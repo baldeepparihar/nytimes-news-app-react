@@ -21,7 +21,9 @@ html {
     max-width: 100%;
     height: auto;
   }
-
+.remaining-articles--container {
+  margin: 4rem 0;
+}
 .remaining-articles--container > h1 {
     font-size: 5rem;
 }
@@ -61,4 +63,55 @@ html {
 }
 .remaining-articles__byline {
     font-style: italic;
+}
+
+@media(max-width: 1400px) {
+  .remaining-articles__card img {
+    border-radius: 10px;
+    display: flex;
+    width: 30%;
+    max-height: 28rem;
+}
+  .remaining-articles__content--container {
+    width: 60%;
+    padding: 2rem;
+}
+  .remaining-articles__card .remaining-articles__content--container h6, a {
+    font-size: 2rem;
+}
+  .remaining-articles__card .remaining-articles__content--container h6 {
+    margin-bottom: 2rem;
+}
+  .remaining-articles__card .remaining-articles__content--container a {
+    font-size: 2rem;
+}
+  .remaining-articles__content--container p {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+}
+
+@media(max-width: 1200px) {
+  .remaining-articles__card img {
+    border-radius: 5px;
+    width: 23rem;
+    max-height: 18rem;
+}
+  .remaining-articles__content--container {
+    width: 50%;
+    padding: 2rem;
+}
+  .remaining-articles__card .remaining-articles__content--container h6, a {
+    font-size: 1.8rem;
+}
+  .remaining-articles__card .remaining-articles__content--container h6 {
+    margin-bottom: 1rem;
+}
+  .remaining-articles__card .remaining-articles__content--container a {
+    font-size: 1.8rem;
+}
+  .remaining-articles__content--container p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
 }

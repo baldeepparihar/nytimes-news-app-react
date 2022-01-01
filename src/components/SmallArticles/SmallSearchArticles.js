@@ -1,12 +1,12 @@
 import React from 'react';
-import './SmallSearchArticles.css';
+import './SmallArticles.css';
 
 
 const SmallSearchArticles = ({ smallSearchArticle }) => {
     return(
-        <div className="smallersearch-article">
+        <div className="smaller-article">
                 {smallSearchArticle && (
-                <div className="smallersearch-article__card" id={smallSearchArticle._id}>
+                <div className="smaller-article__card" id={smallSearchArticle._id}>
                     <img src={smallSearchArticle.multimedia?.[0]?.url ? 
                         `https://nytimes.com/${smallSearchArticle.multimedia[0].url}` :
                         'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'

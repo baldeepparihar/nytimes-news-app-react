@@ -1,12 +1,12 @@
 import React from 'react';
-import './SmallTopStoriesArticles.css';
+import './SmallArticles.css';
 
 
 const SmallTopStoriesArticles = ({ smallTopStoriesArticle }) => {
     return(
-        <div className="smallertopstories-article">
+        <div className="smaller-article">
                 {smallTopStoriesArticle && (
-                <div className="smallertopstories-article__card" id={smallTopStoriesArticle.uri}>
+                <div className="smaller-article__card" id={smallTopStoriesArticle.uri}>
                     <img
                     src={smallTopStoriesArticle.multimedia?.[0]?.url ? 
                         `${smallTopStoriesArticle.multimedia?.[0]?.url}` :

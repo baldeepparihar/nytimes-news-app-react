@@ -17,7 +17,7 @@ function Sidebar({ weather, sidebarOne, sidebarTwo }) {
     let dayOfWeek3 = day3.getDay();
 
     return (
-        <div>
+        <div className="sidebar--wrapper">
             {weather && (
             <div className="weather">
                 <div className="current__weather">

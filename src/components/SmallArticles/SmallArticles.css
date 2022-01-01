@@ -44,3 +44,26 @@ html {
     width: 100%;
     text-align: center;
 }
+
+@media(max-width: 1200px) {
+  .smaller-article {
+    display: flex;
+    flex-wrap: wrap;    
+}
+.smaller-article__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.smaller-article__card img {
+    width: 8rem;
+    height: 5rem;
+    border-radius: 5px;
+}
+.smaller-article__card h6, a {
+    font-size: .9rem;
+    width: 100%;
+    text-align: center;
+}
+}

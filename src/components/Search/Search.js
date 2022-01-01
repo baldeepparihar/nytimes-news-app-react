@@ -4,7 +4,7 @@ import { TextField, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import './Search.css';
 
-const Search = ({ searchArticles, search }) => {
+const Search = ({ searchArticles, search  }) => {
     const [text, setText] = useState('');
     const navigate = useNavigate();
     
@@ -14,8 +14,9 @@ const Search = ({ searchArticles, search }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        searchArticles(text);
-        navigate(`searchresults/${search}`)
+        let noSpace = text.replace(/\s+/g, '');
+        searchArticles(noSpace);
+        navigate(`/searchresults/${text}`)
     };
 
     return (
