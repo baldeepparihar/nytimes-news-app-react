@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import MainTopStoriesArticle from '../MainArticle/MainTopStoriesArticle.js';
 import SmallTopStoriesArticles from '../SmallArticles/SmallTopStoriesArticles.js';
 import RemainingArticles from '../RemainingArticles/RemainingArticles.js';
@@ -19,20 +18,7 @@ function TopStoriesArticles({
             search,
             topStories,
             smallTopStories,
-            getTopArticles
         }) {
-            const { pathname } = useLocation();
-              
-
-        useEffect(() => {
-            let section = pathname.split('/').pop()
-
-            if(section.length){
-                getTopArticles(section)
-            }
-                console.log(topStories)
-                console.log(smallTopStories)
-        }, [])
     
 
     return (

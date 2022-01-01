@@ -4,7 +4,7 @@ import { TextField, IconButton, InputAdornment } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import './Search.css';
 
-const Search = ({ searchArticles, search  }) => {
+const Search = ({ searchArticles }) => {
     const [text, setText] = useState('');
     const navigate = useNavigate();
     

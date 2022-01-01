@@ -2,13 +2,12 @@ import React from 'react';
 import Blahbble from '../../assets/blahbble-logo.png';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ getTopArticles }) {
 
     function handleClick(e) {
-        let sectionName = e.target.innerText.toLowerCase();
-        window.location.pathname = `/topstories/${sectionName}`
+        let searchTerm = e.target.innerText.toLowerCase();
+        getTopArticles(searchTerm);
     }
-
 
     return (
         <div className="navbar">

@@ -25,7 +25,6 @@ const App = () => {
   const [sidebarOne, setSidebarOne] = useState([]);
   const [sidebarTwo, setSidebarTwo] = useState([]);
   const [weather, setWeather] = useState([]);
-  const [sectionName, setSectionName] = useState('');
   
 
   useEffect(() => {
@@ -115,14 +114,16 @@ const App = () => {
     setSearch(res.data.response.docs);
   };
 
-  const getTopArticles = async (section) => {
+  const getTopArticles = async (searchTerm) => {
     try {
-    setSectionName(section)
-    const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+    const res = await axios.get(`https://api.nytimes.com/svc/topstories/v2/${searchTerm}.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`)
+    
     setTopStories(res.data.results.slice(1, 2))
     setSmallTopStories(res.data.results.slice(4, 9))
 
-    console.log("Section Name: ", sectionName)
+    if(topStories.length && smallTopStories.length) {
+      window.location.pathname = `/topstories/${searchTerm}`;
+    }
 
   } catch(e) {
     console.log("Error: ", e);
@@ -139,7 +140,7 @@ const App = () => {
             </div>
           ) : (
             <div>
-              <Navbar />
+              <Navbar getTopArticles={getTopArticles}  />
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" 
@@ -182,8 +183,6 @@ const App = () => {
                         weather={weather}
                         topStories={topStories}
                         smallTopStories={smallTopStories}
-                        getTopArticles={getTopArticles}
-                        setSectionName={setSectionName}
                         />
                       </div>
                         } />
